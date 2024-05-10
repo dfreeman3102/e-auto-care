@@ -4,8 +4,27 @@ const argon2 = require('argon2');
 const sequelize = require('../config/connection.js');
 
 class User extends Model {
-//add argon2 hashing here later
+//argon2 hashing
+   async hashPassword(){
+    try{
+        //checking if the password has changed before hashing it
+        if(this.changed('password')){
+            this.password = await argon2.hash(this.password);
+        }
+    } catch (err){
+        console.log("Error hashing password", err);
+    }
+   }
    
+   async verifyPassword(password){
+    try{
+        //verifies 
+        return await argon2.verify(this.password, password);
+    } catch (err) {
+        console.log("Error verifying password", err);
+        return false;
+    }
+   }
 }
 
 User.init(
@@ -61,7 +80,10 @@ User.init(
     },
     {
         hooks: {
-            //add password hashing here
+            // password hashing is called before it is sent to the db
+            beforeCreate: async (user) => {
+                await user.hashPassword();
+            }
         },
         sequelize,
         timestamps: false,
