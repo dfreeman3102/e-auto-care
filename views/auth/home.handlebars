@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{pageTitle}}</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>{{shopName}}</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/services">Services</a></li>
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/login">Login/Sign Up</a></li> <!-- Added -->
+            </ul>
+        </nav>
+    </header>
+{{!-- might switch to another file --}}
+    <main>
+        <section id="services">
+            <h2>Our Services</h2>
+            <ul>
+                {{#each services}}
+                    <li>{{this}}</li>
+                {{/each}}
+            </ul>
+        </section>
+{{!-- jokes  --}}
+        <section id="about">
+            <h2>About Us</h2>
+            <p>{{aboutText}}</p>
+        </section>
+
+
+    <footer>
+        <p>&copy; {{year}} {{shopName}}. All rights reserved.</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
