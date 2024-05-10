@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "username": "dfreeman3102",
+        "email": "david@gmail.com",
+        "password": "password1",
+        "firstName": "David",
+        "lastName": "Freeman",
+        "car_ID": 1,
+        "appt_ID": 1
+    },
+    {
+        "id": 2,
+        "username": "rmolu123",
+        "email": "ralph@gmail.com",
+        "password": "password2",
+        "firstName": "Ralph",
+        "lastName": "Molu",
+        "car_ID": 2,
+        "appt_ID": 2
+    },
+    {
+        "id": 3,
+        "username": "aprince321",
+        "email": "armoni@gmail.com",
+        "password": "password3",
+        "firstName": "Armoni",
+        "lastName": "Prince",
+        "car_ID": 3,
+        "appt_ID": 3
+    },
+    {
+        "id": 4,
+        "username": "iharalalka",
+        "email": "ian@gmail.com",
+        "password": "password4",
+        "firstName": "Ian",
+        "lastName": "Haralalka",
+        "car_ID": 4,
+        "appt_ID": 4
+    }
+]
