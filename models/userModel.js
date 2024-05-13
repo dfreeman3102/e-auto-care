@@ -18,7 +18,7 @@ class User extends Model {
    
    async verifyPassword(password){
     try{
-        //verifies 
+        //verifies password during login
         return await argon2.verify(this.password, password);
     } catch (err) {
         console.log("Error verifying password", err);
