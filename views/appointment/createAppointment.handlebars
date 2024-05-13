@@ -1,0 +1,46 @@
+
+
+
+
+<!-- Modal -->
+    <div id="appointmentModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Book an Appointment</h2>
+            <form id="appointmentForm">
+             <p> Welcome {{ user.id }} Please select your service and preferred date and time. </p>
+                {{!-- <label for="service">Select Service:</label> --}}
+                <select id="serviceDropdown" name="service">
+                    {{#each services}}
+                        <option value="{{this}}">{{this}}</option>
+                    {{/each}}
+        {{!-- will only let user select a open time for that service --}}
+                </select>
+
+                <section id="appointmentForm">
+            <h2>Book an Appointment</h2>
+            <form>
+                <!-- Other form fields -->
+                <input id="calendar"></div>
+                <!-- Other form fields -->
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; {{year}} {{shopName}}. All rights reserved.</p>
+    </footer>
+                
+            </form>
+        </div>
+    </div>
+
+                   
+               
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
