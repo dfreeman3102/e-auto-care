@@ -1,7 +1,7 @@
 //Import models
-const User = require('./User');
-const Appointment = require('./Appointment');
-const Car = require('./Car');
+const User = require('./userModel');
+const Appointment = require('./appointmentModel');
+const Car = require('./carModel');
 
 //associations between various tables
 

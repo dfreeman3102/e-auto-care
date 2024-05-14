@@ -6,7 +6,7 @@ class Appointment extends Model { }
 Appointment.init(
     {
         id: {
-            type: DataType.INTEGER,
+            type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true
