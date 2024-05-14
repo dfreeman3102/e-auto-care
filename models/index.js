@@ -36,7 +36,7 @@ Car.hasMany(Appointment, {
 
 //Appointments belongs to Cars
 Appointment.belongsTo(Car, {
-    foreignKey: 'cars_ID'
+    foreignKey: 'car_ID'
 });
 
 module.exports= {
