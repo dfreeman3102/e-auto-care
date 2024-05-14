@@ -35,7 +35,7 @@ Car.hasMany(Appointment, {
 });
 
 //Appointments belongs to Cars
-Appointment.belongTo(Car, {
+Appointment.belongsTo(Car, {
     foreignKey: 'cars_ID'
 });
 
