@@ -5,9 +5,7 @@
         "email": "david@gmail.com",
         "password": "password1",
         "firstName": "David",
-        "lastName": "Freeman",
-        "car_ID": 1,
-        "appt_ID": 1
+        "lastName": "Freeman"
     },
     {
         "id": 2,
@@ -15,9 +13,7 @@
         "email": "ralph@gmail.com",
         "password": "password2",
         "firstName": "Ralph",
-        "lastName": "Molu",
-        "car_ID": 2,
-        "appt_ID": 2
+        "lastName": "Molu"
     },
     {
         "id": 3,
@@ -25,9 +21,7 @@
         "email": "armoni@gmail.com",
         "password": "password3",
         "firstName": "Armoni",
-        "lastName": "Prince",
-        "car_ID": 3,
-        "appt_ID": 3
+        "lastName": "Prince"
     },
     {
         "id": 4,
@@ -35,8 +29,6 @@
         "email": "ian@gmail.com",
         "password": "password4",
         "firstName": "Ian",
-        "lastName": "Haralalka",
-        "car_ID": 4,
-        "appt_ID": 4
+        "lastName": "Haralalka"
     }
 ]
