@@ -62,20 +62,6 @@ User.init(
         lastName:{
             type: DataTypes.STRING,
             allowNull: false
-        },
-        car_ID:{
-            type: DataTypes.INTEGER,
-            references:{
-                model: 'car',
-                key: 'id'
-            }
-        },
-        appt_ID:{
-            type: DataTypes.INTEGER,
-            references:{
-                model: 'appointment',
-                key: 'id'
-            }
         }
     },
     {

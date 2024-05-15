@@ -12,9 +12,13 @@ Appointment.init(
             autoIncrement: true
         },
 
-        service: {
+        service_ID: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            references: {
+                model: 'service',
+                key: 'id'
+            }
         },
 
         date: {
@@ -25,7 +29,15 @@ Appointment.init(
         time: {
             type: DataTypes.TIME,  //stores time only, ideal for managing appointment time
             allowNull: false
-        }
+        },
+        user_ID: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: 'user',
+                key: "id",
+            }
+        },
 
     },
     {

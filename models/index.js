@@ -2,6 +2,7 @@
 const User = require('./userModel');
 const Appointment = require('./appointmentModel');
 const Car = require('./carModel');
+const Service = require('./serviceModel');
 
 //associations between various tables
 
@@ -27,20 +28,19 @@ Appointment.belongsTo(User, {
     foreignKey: 'user_ID',
 });
 
-
-//Car can have many appointments
-Car.hasMany(Appointment, {
-    foreignKey: 'car_ID',
-    onDelete: "CASCADE" // delete appointments of a car when the car is deleted
+Service.hasMany(Appointment, {
+    foreignKey: 'service_ID',
+    onDelete: 'CASCADE'
 });
 
-//Appointments belongs to Cars
-Appointment.belongsTo(Car, {
-    foreignKey: 'car_ID'
+Appointment.belongsTo(Service, {
+    foreignKey: 'service_ID'
 });
+
 
 module.exports= {
     User,
     Appointment,
-    Car
+    Car,
+    Service
 };
