@@ -1,11 +1,16 @@
 const express = require('express');
-const session = require('express-session')
+const session = require('express-session');
+const exphbs = require('express-handlebars');
 const routes = require('./controllers');
-const sequelize = require('./config/connection.js')
+const sequelize = require('./config/connection.js');
+const helpers = require('./utils/auth.js');
+
 
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+const hbs = exphbs.create({ helpers });
 
 //set up session
 const sess = {
@@ -15,12 +20,15 @@ const sess = {
         secure: false 
     },
     resave:false,
-    saveUninitalized: true,
+    saveUninitialized: true,
     store: new session.MemoryStore()
 };
 
 //session middleware
 app.use(session(sess));
+
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
 
 //json and url middleware
 app.use(express.json());
