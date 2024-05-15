@@ -1,5 +1,6 @@
 const express = require('express');
 const session = require('express-session');
+const path = require('path');
 const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 const sequelize = require('./config/connection.js');
@@ -33,6 +34,8 @@ app.set('view engine', 'handlebars');
 //json and url middleware
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+app.use(express.static(path.join(__dirname, 'public')));
+
 
 // use routes in controllers
 app.use('/', routes);

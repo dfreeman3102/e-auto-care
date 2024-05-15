@@ -1,6 +1,28 @@
 const router = require('express').Router();
 const {User} = require('../../models');
 
+router.post('/', async (req, res) => {
+    try{
+        const userData = await User.create({
+            username: req.body.userName,
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            email: req.body.email,
+            password: req.body.password
+        });
+
+        req.session.save(() => {
+            req.session.user_id = userData.id;
+            req.session.logged_in = true;
+
+            res.status(200).json(userData);
+        })
+    } catch (err) {
+        console.error('Signup Error', err);
+        res.status(400).json({ message: "An error occurred while signing up." });
+    }
+});
+
 router.post('/login', async (req, res) => {
     try{
         //find user email that matches posted email
