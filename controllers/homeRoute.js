@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const {User} = require('../models');
 
-router.get('/', async (req, res) => {
+router.get('/', (req, res) => {
     try{
-    res.render('home', {
+    res.render('auth/home', {
       logged_in: req.session.logged_in,
     });
     } catch (err) {
@@ -20,7 +20,7 @@ router.get('/profile', async (req, res) => {
   
       const user = userData.get({ plain: true });
   
-      res.render('profile', {
+      res.render('user/profile', {
         ...user,
         logged_in: true
       });
