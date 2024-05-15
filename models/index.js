@@ -28,12 +28,12 @@ Appointment.belongsTo(User, {
     foreignKey: 'user_ID',
 });
 
-Service.hasMany(Appointment, {
+Appointment.hasOne(Service, {
     foreignKey: 'service_ID',
     onDelete: 'CASCADE'
 });
 
-Appointment.belongsTo(Service, {
+Service.belongsTo(Appointment, {
     foreignKey: 'service_ID'
 });
 

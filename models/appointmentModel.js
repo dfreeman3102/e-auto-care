@@ -13,7 +13,7 @@ Appointment.init(
         },
 
         service_ID: {
-            type: DataTypes.STRING,
+            type: DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: 'service',
