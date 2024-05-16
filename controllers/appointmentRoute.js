@@ -3,20 +3,16 @@ const router = express.Router()
 const {Appointment, User , Service} = require('../models')
 
 //get all appointments
-router.get('/appointments', async (req, res)=>{
+router.get('/', async (req, res)=>{
     try{
-        const appointment = await Appointment.findAll({
-            include:[User, { model: Service, through: 'appointment_ service'}]
-        })
-        res.json(appointment)
+        res.render('appointment/createAppointment');
     }catch(err){
-        console.error('error accessing appointment', err)
-        res.status(500).json({message: ' internal service error'})
+        res.status(500).json({message: 'error accessing appointment', err})
     }
 })
 
 //create a new appointment with selected service
-router.post('/appointments', async(req, res)=>{
+router.post('/', async(req, res)=>{
     try{
         const {userId, carId, appointmentDate, selectedServiceId} = req.body
     
