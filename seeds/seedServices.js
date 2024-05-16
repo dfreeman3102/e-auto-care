@@ -18,5 +18,4 @@ const seedServices = async () => {
     await Service.bulkCreate(servicesData);
 };
 
-module.exports = serviceData;
-
+module.exports = seedServices;

@@ -1,4 +1,8 @@
-[
+const User = require('../models/userModel');
+const argon2 = require('argon2');
+
+
+const userData = [
     {
         "id": 1,
         "username": "dfreeman3102",
@@ -31,4 +35,23 @@
         "firstName": "Ian",
         "lastName": "Haralalka"
     }
-]
+];
+
+const seedUsers = async () => {
+    try {
+        // Hash password before adding to the database
+        for (const user of userData) {
+            user.password = await argon2.hash(user.password);
+        }
+        await User.bulkCreate(userData, {
+            individualHooks: true,
+            returning: true
+        });
+
+        console.log('Users seeded successfully.');
+    } catch (err) {
+        console.error('Error seeding users:', err);
+    }
+};
+
+module.exports = seedUsers;
