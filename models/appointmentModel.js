@@ -12,15 +12,6 @@ Appointment.init(
             autoIncrement: true
         },
 
-        service_ID: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: 'service',
-                key: 'id'
-            }
-        },
-
         date: {
             type: DataTypes.DATEONLY, // stores date only, without time
             allowNull: false
