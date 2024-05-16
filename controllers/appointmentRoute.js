@@ -5,7 +5,7 @@ const {Appointment, User , Service} = require('./models')
 //get all appointments
 router.get('/appointments', async (req, res)=>{
     try{
-        const appointments = await Appointment.findAll({
+        const appointment = await Appointment.findAll({
             include:[User, { model: Service, through: 'appointment_ service'}]
         })
         res.json(appointment)
