@@ -1,4 +1,4 @@
-/* Custom styles for the navbar */
+/* style for the navbar */
 .navbar {
     background-color: #f8f9fa; /* Light gray background */
 }
@@ -11,8 +11,69 @@
     color: #007bff !important; /* Bootstrap primary color on hover */
 }
 
-/* Custom styles for the footer */
+/* style for the footer */
 .footer {
     background-color: #f8f9fa; /* Light gray background */
     color: #343a40; /* Dark gray text */
+}
+
+/* style for the forms */
+.form-container {
+    background-color: #495057; /* Slightly lighter dark background */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.form-container h2 {
+    color: #f8f9fa; /* Light text */
+}
+
+.form-container .form-group label {
+    color: #f8f9fa; /* Light text */
+}
+
+.form-container .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.form-container .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/* style for the appointment form */
+.form-container {
+    background-color: #495057; /* Slightly lighter dark background */
+    padding: 20px;
+    border-radius: 10px;
+    color: #f8f9fa; /* Light text */
+}
+
+.form-container h2, .form-container h3, .form-container p, .form-container label {
+    color: #f8f9fa; /* Light text */
+}
+
+.form-container .form-group {
+    margin-bottom: 15px;
+}
+
+.form-container .form-control, .form-container select, .form-container input[type="datetime-local"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+}
+
+.form-container .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.form-container .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
 }

@@ -20,25 +20,15 @@
             background-attachment: fixed;
         }
     </style>
-    <header class="bg-light py-3">
-        <div class="container text-center">
-            {{!-- <h1>{{shopName}}</h1> --}}
-            <h1 id="mainTitle" class="title is-2"
-                style="font-family: cursive; font-size: 50px; color: red; background-color: black; opacity: 0.8; border-radius: 10px 10px 10px 10px">
-                E-Auto-Care</h1>
-            <nav class="navbar navbar-expand-lg navbar-dark" aria-label="main navigation">
-                <li class="nav-link"><a href="/">Home</a></li>
-                <li class="nav-link"><a href="/about">About Us</a></li>
-                <li class="nav-link"><a href="/login">Login/Sign Up</a></li> <!-- Added -->
-                </ul>
-            </nav>
-    </header>
+
+
     {{!-- might switch to another file --}}
     <main class="container my-5">
         <section id="services" class="mb-5">
             <h2 class="text-center"
                 style="font-family: cursive; font-size: 50px; color: red; background-color: black; opacity: 0.8; border-radius: 10px 10px 10px 10px">
-                <a href="/appointments">Our Services</h2>
+                <a href="/appointments">Our Services
+            </h2>
             <ul class="list-group">
                 {{#each services}}
                 <li class="list-group-item">{{this}}</li>
@@ -52,12 +42,10 @@
     <script src="calendar.js"></script>
     <script src="scripts.js"></script>
     <source>
-    <nav class="navbar fixed-bottom bg-light py-3 " style="background-color: black" aria-label="main navigation">
-        <footer class="bg-light py-3 text-black" style="background-color: black">
-            <p>&copy; {{year}} {{shopName}}. All rights reserved.</p>
-        </footer>
-        <link rel="stylesheet" href="assets/style.css">
-        </head>
+
+
+    <link rel="stylesheet" href="/public/css/style.css">
+
 </body>
 
 </html>
