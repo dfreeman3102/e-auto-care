@@ -29,6 +29,13 @@ Appointment.init(
                 key: "id",
             }
         },
+        service_ID:{
+            type: DataTypes.INTEGER,
+            references:{
+                model:"service",
+                key:'id'
+            }
+        }
 
     },
     {
