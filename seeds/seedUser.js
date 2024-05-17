@@ -13,27 +13,27 @@ const userData = [
     },
     {
         id: 2,
-        "username": "rmolu123",
-        "email": "ralph@gmail.com",
-        "password": "password2",
-        "firstName": "Ralph",
-        "lastName": "Molu"
+        username: "rmolu123",
+        email: "ralph@gmail.com",
+        password: "password2",
+        firstName: "Ralph",
+        lastName: "Molu"
     },
     {
-        "id": 3,
-        "username": "aprince321",
-        "email": "armoni@gmail.com",
-        "password": "password3",
-        "firstName": "Armoni",
-        "lastName": "Prince"
+        id: 3,
+        username: "aprince321",
+        email: "armoni@gmail.com",
+        password: "password3",
+        firstName: "Armoni",
+        lastName: "Prince"
     },
     {
-        "id": 4,
-        "username": "iharalalka",
-        "email": "ian@gmail.com",
-        "password": "password4",
-        "firstName": "Ian",
-        "lastName": "Haralalka"
+        id: 4,
+        username: "iharalalka",
+        email: "ian@gmail.com",
+        password: "password4",
+        firstName: "Ian",
+        lastName: "Haralalka"
     }
 ];
 
