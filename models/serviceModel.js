@@ -15,14 +15,6 @@ Service.init(
             type: DataTypes.STRING,
             allowNull: false,
             unique: true
-        },
-        appointment_ID: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: 'appointment',
-                key: 'id'
-            }
         }
     },
     {

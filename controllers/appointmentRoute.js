@@ -5,7 +5,12 @@ const {Appointment, User , Service} = require('../models')
 //get all appointments
 router.get('/', async (req, res)=>{
     try{
-        res.render('appointment/createAppointment');
+        const serviceData = await Service.findAll();
+
+        const services = serviceData.map((service) => service.get({ plain: true }))
+        res.render('appointment/createAppointment', 
+            services
+        );
     }catch(err){
         res.status(500).json({message: 'error accessing appointment', err})
     }
@@ -16,7 +21,7 @@ router.post('/', async(req, res)=>{
     try{
         const {userId, carId, appointmentDate, selectedServiceId} = req.body
     
-    const user = await User.findbypk(userId)
+    const user = await User.findByPk(userId)
     if(!user){
         return res.status(404).json({message:'User not found'})
     }
