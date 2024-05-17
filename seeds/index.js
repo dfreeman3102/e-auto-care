@@ -10,12 +10,14 @@ const seedAll = async () => {
     await sequelize.sync({ force: true });
     try {
       await seedUsers();
+
     } catch (err) {
       console.log(err);
     }
     await seedCars();
-    await seedAppointments();
     await seedServices();
+    await seedAppointments();
+
 
     console.log("Seeding successful!");
   } catch (err) {

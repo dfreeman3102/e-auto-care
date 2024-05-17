@@ -34,7 +34,8 @@ Appointment.hasOne(Service, {
 });
 
 Service.belongsTo(Appointment, {
-    foreignKey: 'service_ID'
+    foreignKey: 'service_ID',
+    onDelete: 'CASCADE'
 });
 
 

@@ -2,11 +2,12 @@ const Service = require('../models/serviceModel');
 
 const servicesData = [
     {
-        name:'Oil Change'
+        name: 'Oil Change'
     },
     {
         name: 'Tire Rotations'
-    },{
+    }, 
+    {
         name: 'Brake Fluid Flush'
     },
     {

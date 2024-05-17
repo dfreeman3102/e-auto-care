@@ -4,7 +4,7 @@ const appointmentData = [
     {
         date: '2024-06-15',
         time: '10:00:00',
-        user_ID: 1
+        user_ID: 1,
     },
     {
         date: '2024-06-16',
