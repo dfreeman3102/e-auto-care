@@ -4,15 +4,15 @@ const argon2 = require('argon2');
 
 const userData = [
     {
-        "id": 1,
-        "username": "dfreeman3102",
-        "email": "david@gmail.com",
-        "password": "password1",
-        "firstName": "David",
-        "lastName": "Freeman"
+        id: 1,
+        username: "dfreeman3102",
+        email: "david@gmail.com",
+        password: "password1",
+        firstName: "David",
+        lastName: "Freeman"
     },
     {
-        "id": 2,
+        id: 2,
         "username": "rmolu123",
         "email": "ralph@gmail.com",
         "password": "password2",
