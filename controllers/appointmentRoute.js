@@ -9,7 +9,7 @@ router.get('/', async (req, res)=>{
 
         const services = serviceData.map((service) => service.get({ plain: true }))
         res.render('appointment/createAppointment', 
-            services
+            {services}
         );
     }catch(err){
         res.status(500).json({message: 'error accessing appointment', err})

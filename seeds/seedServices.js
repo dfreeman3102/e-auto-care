@@ -1,17 +1,38 @@
 const Service = require('../models/serviceModel');
 
 const servicesData = [
-    'Oil Change',
-    'Tire Rotations',
-    'Brake Fluid Flush',
-    'Head Light Replacement',
-    'Tire Repair',
-    'Transmission Service',
-    'Ceramic Coating',
-    'Window Tinting',
-    'Brake Replacement',
-    'Caliper Replacement',
-    'A/C Service'
+    {
+        name:'Oil Change'
+    },
+    {
+        name: 'Tire Rotations'
+    },{
+        name: 'Brake Fluid Flush'
+    },
+    {
+        name: 'Head Light Replacement'
+    },
+    {
+        name: 'Tire Repair'
+    },
+    {
+        name: 'Transmission Service'
+    },
+    {
+        name: 'Ceramic Coating'
+    },
+    {
+        name: 'Window Tinting'
+    },
+    {
+        name: 'Brake Replacement'
+    },
+    {
+        name: 'Caliper Replacement'
+    },
+    {
+        name: 'A/C Service'
+    }
 ];
 
 const seedServices = async () => {
