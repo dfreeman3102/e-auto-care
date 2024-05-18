@@ -3,14 +3,33 @@ const router = express.Router()
 const {Appointment, User , Service} = require('../models')
 const withAuth = require('../utils/auth');
 
-//get all appointments
+//view for create appoints 
 router.get('/', withAuth, async (req, res)=>{
     try{
         const serviceData = await Service.findAll();
 
         const services = serviceData.map((service) => service.get({ plain: true }))
         res.render('appointment/createAppointment', 
-            {services}
+            {
+                logged_in: req.session,
+                services
+            }
+        );
+    }catch(err){
+        res.status(500).json({message: 'error accessing appointment', err})
+    }
+})
+
+router.get('/all', withAuth, async (req, res)=>{
+    try{
+        const appointmentsData = await Appointment.findAll();
+
+        const appointments = appointmentsData.map((appoinment) => appoinment.get({ plain: true }))
+        res.render('appointment/viewAppointments', 
+            {
+                logged_in: req.session,
+                appointments
+            }
         );
     }catch(err){
         res.status(500).json({message: 'error accessing appointment', err})
@@ -18,7 +37,7 @@ router.get('/', withAuth, async (req, res)=>{
 })
 
 //create a new appointment with selected service
-router.post('/', async(req, res)=>{
+router.post('/appi', async(req, res)=>{
     try{
         const {userId, carId, appointmentDate, selectedServiceId} = req.body
     
