@@ -22,7 +22,7 @@ const sess = {
         secure: false 
     },
     resave:false,
-    saveUninitialized: false,
+    saveUninitialized: true,
     store: new session.MemoryStore()
 };
 

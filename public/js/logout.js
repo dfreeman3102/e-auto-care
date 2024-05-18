@@ -7,7 +7,7 @@ const logoutHandler = async () => {
         headers:{ 'Content-Type': 'application.json'}
     });
 
-    document.cookie = 'connect.sid =; expires=Thu, 01 Jan 1970 00:00:00 UTC; path =/;'
+    // document.cookie = 'connect.sid =; expires=Thu, 01 Jan 1970 00:00:00 UTC; path =/;'
 
     if(response.ok){
         
