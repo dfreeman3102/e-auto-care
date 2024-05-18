@@ -14,7 +14,7 @@ const loginHandler = async (event) => {
             });
 
             if (response.ok) {
-                document.location.replace('/');
+                document.location.replace('/appointments');
             } else {
                 const errorMsg = await response.text();
                 alert(`Failed to log in: ${errorMsg}`);

@@ -1,5 +1,5 @@
 <header class="bg-light py-3">
-<nav class="navbar container text-center navbar-expand-lg navbar-light">
+  <nav class="navbar container text-center navbar-expand-lg navbar-light">
     <div class="container">
         <a class="navbar-brand" href="/">E-Auto-Care</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,9 +31,8 @@
             </ul>
         </div>
     </div>
-</nav>
+  </nav>
 </header>
-
-
-<!-- Link to login.js -->
-<script src="./js/logout.js"></script>
+{{#if logged_in}}
+  <script src="/js/logout.js"></script>
+{{/if}}
