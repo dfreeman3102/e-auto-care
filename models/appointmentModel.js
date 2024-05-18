@@ -31,6 +31,7 @@ Appointment.init(
         },
         service_ID:{
             type: DataTypes.INTEGER,
+            allowNull: false,
             references:{
                 model: 'service',
                 key:'id'

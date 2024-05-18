@@ -3,7 +3,7 @@ const router = express.Router()
 const {Appointment, User , Service} = require('../models')
 const withAuth = require('../utils/auth');
 
-//view for create appoints 
+//view for create appointment
 router.get('/', withAuth, async (req, res)=>{
     try{
         const serviceData = await Service.findAll();
@@ -20,14 +20,21 @@ router.get('/', withAuth, async (req, res)=>{
     }
 })
 
+//route for logged in user to view appointments
 router.get('/all', withAuth, async (req, res)=>{
     try{
-        const appointmentsData = await Appointment.findAll();
+        const appointmentsData = await Appointment.findAll({
+            where: { user_ID: req.session.user_id},
+            include: {
+                model: Service,
+                attributes: ['name']
+            }
+        });
 
-        const appointments = appointmentsData.map((appoinment) => appoinment.get({ plain: true }))
-        res.render('appointment/viewAppointments', 
+        const appointments = appointmentsData.map((appointment) => appointment.get({ plain: true }))
+        res.render('appointments', 
             {
-                logged_in: req.session,
+                logged_in: req.session.logged_in,
                 appointments
             }
         );
@@ -37,9 +44,9 @@ router.get('/all', withAuth, async (req, res)=>{
 })
 
 //create a new appointment with selected service
-router.post('/appi', async(req, res)=>{
+router.post('/api', async(req, res)=>{
     try{
-        const {userId, carId, appointmentDate, selectedServiceId} = req.body
+        const {userId, carId, appointmentDate, service_ID} = req.body
     
     const user = await User.findByPk(userId)
     if(!user){
@@ -48,14 +55,15 @@ router.post('/appi', async(req, res)=>{
     const appointment = await Appointment.create({
         user_id: userId,
         car_id: carId,
-        appointment_date: appointmentDate
+        date: appointmentDate.split('T')[0],
+        time: appointmentDate.split('T')[1],
+        service_ID: service_ID
     })
-    if (selectedServiceId){
-        const service = await Service.findByPk(selectedServiceId)
+    if (service_ID){
+        const service = await Service.findByPk(service_ID)
         if(!service){
             return res.status(404).json({ message:'selected service not found'})
         }
-        await appointment.addService(service)
     }
     res.status(201).json(appointment)
     } catch(err){
