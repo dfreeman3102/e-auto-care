@@ -3,8 +3,9 @@ const { User } = require('../models');
 
 router.get('/', (req, res) => {
   try {
+    console.log(req.session);
     res.render('auth/home', {
-      logged_in: req.session.logged_in,
+      logged_in: req.session,
       pageTitle: 'Home',
       shopName: 'E-Auto-Care',
       year: new Date().getFullYear()

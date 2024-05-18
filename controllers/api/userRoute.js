@@ -56,10 +56,20 @@ router.post('/login', withAuth, async (req, res) => {
 });
 
 router.post('/logout', (req, res) => {
-    if(req.session.logged_in){
-        req.session.destroy(() => {
-            res.status(204).json({message: 'Logout Successful'});
+    console.log('session outside');
+    if(req.session){
+        console.log('session inside');
+        req.session.destroy((err) => {
+            if (err) {
+                console.log('error', err);
+                res.status(500).json({ message: 'Error in destroying session' });
+                return;
+            }
+            res.clearCookie('connect.sid');
+            res.status(200).json({ message: 'Logout successful' });
         });
+
+
     } else {
         res.status(404).json({message: 'No user to logout'});
     }

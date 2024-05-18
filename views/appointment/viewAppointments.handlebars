@@ -1,11 +1,12 @@
 <div id="appointmentModal">
     <h1>Appointments</h1>
     <div id="appointmentContainer">
-        {{#each appointments}}
-            <div class="appointment">
-                <h3>{{service}}</h3>
-                <p>{{date}}</p>
-                <p>{{time}}</p>
+        {{#each appointments as |app|}}
+            <div class="appointment" style = "background-color: white; padding:20px; margin:20px;">
+                <h3>{{app.service}}</h3>
+                <p>{{app.date}}</p>
+                <p>{{app.time}}</p>
             </div>
+        {{/each}}
     </div>
 </div>
