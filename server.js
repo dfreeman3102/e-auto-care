@@ -16,12 +16,13 @@ const hbs = exphbs.create({ helpers });
 //set up session
 const sess = {
     secret: 'Super secret secret',
+
     cookie:{
         maxAge: 3600000,
         secure: false 
     },
     resave:false,
-    saveUninitialized: true,
+    saveUninitialized: false,
     store: new session.MemoryStore()
 };
 
