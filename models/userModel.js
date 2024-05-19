@@ -4,62 +4,63 @@ const argon2 = require('argon2');
 const sequelize = require('../config/connection.js');
 
 class User extends Model {
-//argon2 hashing
-   async hashPassword(){
-    try{
-        //checking if the password has changed before hashing it
-        if(this.changed('password')){
-            this.password = await argon2.hash(this.password);
+    //argon2 hashing
+    async hashPassword() {
+        try {
+            //checking if the password has changed before hashing it
+            if (this.changed('password')) {
+                this.password = await argon2.hash(this.password);
+            }
+        } catch (err) {
+            console.log("Error hashing password", err);
         }
-    } catch (err){
-        console.log("Error hashing password", err);
     }
-   }
-   
-   async verifyPassword(password){
-    try{
-        //verifies password during login
-        return await argon2.verify(this.password, password);
-    } catch (err) {
-        console.log("Error verifying password", err);
-        return false;
+
+    async verifyPassword(password) {
+        try {
+            //verifies password during login
+            return await argon2.verify(this.password, password);
+
+        } catch (err) {
+            console.log("Error verifying password", err);
+            return false;
+        }
     }
-   }
 }
 
 User.init(
     {
-        id:{
+        id: {
             type: DataTypes.INTEGER,
-            allowNull:true,
-            primaryKey:true,
-            autoIncrement:true
+            allowNull: true,
+            primaryKey: true,
+            autoIncrement: true
         },
-        username:{
+        username: {
             type: DataTypes.STRING,
-            allowNull:true,
-            unique:true,
+            allowNull: true,
+            unique: true,
         },
-        email:{
+        email: {
             type: DataTypes.STRING,
-            allowNull:false,
-            unique:true,
-            validate:{
-                isEmail:true
+            allowNull: false,
+            unique: true,
+            validate: {
+                isEmail: true
             },
         },
-        password:{
+        password: {
             type: DataTypes.STRING,
-            allowNull:false,
-            validate:{
+            allowNull: false,
+            validate: {
                 len: [8],
             },
         },
-        firstName:{
+        firstName: {
             type: DataTypes.STRING,
-            allowNull:false
+            allowNull: false
         },
-        lastName:{
+        lastName: {
             type: DataTypes.STRING,
             allowNull: false
         }
