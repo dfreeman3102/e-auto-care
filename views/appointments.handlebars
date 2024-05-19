@@ -1,0 +1,38 @@
+
+
+<style>
+    body {
+        background-color: #343a40; /* Dark background */
+        color: #f8f9fa; /* Light text */
+    }
+    .card {
+        background-color: #495057; /* Slightly lighter dark color for the card */
+        border: none; /* Remove card border */
+    }
+    .card-title, .card-text {
+        color: #f8f9fa; /* Light text for the card content */
+    }
+</style>
+
+<div class="container mt-5">
+    <h1 class="text-center">Your Appointments</h1>
+    {{#if appointments.length}}
+        <div class="row">
+            {{#each appointments}}
+                <div class="col-md-6 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Service: {{this.service.name}}</h5>
+                            <p class="card-text">
+                                <strong>Date:</strong> {{this.date}}<br>
+                                <strong>Time:</strong> {{this.time}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    {{else}}
+        <p class="text-center">No appointments yet.</p>
+    {{/if}}
+</div>
