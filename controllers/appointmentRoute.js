@@ -44,17 +44,16 @@ router.get('/all', withAuth, async (req, res)=>{
 })
 
 //create a new appointment with selected service
-router.post('/api', async(req, res)=>{
+router.post('/create', withAuth, async(req, res)=>{
     try{
-        const {userId, carId, appointmentDate, service_ID} = req.body
+        const { service_ID, appointmentDate } = req.body
     
-    const user = await User.findByPk(userId)
+    const user = await User.findByPk(req.session.user_id)
     if(!user){
         return res.status(404).json({message:'User not found'})
     }
     const appointment = await Appointment.create({
-        user_id: userId,
-        car_id: carId,
+        user_id: req.session.user_id,
         date: appointmentDate.split('T')[0],
         time: appointmentDate.split('T')[1],
         service_ID: service_ID
