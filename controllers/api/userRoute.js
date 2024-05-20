@@ -56,12 +56,10 @@ router.post('/login', async (req, res) => {
 });
 
 router.post('/logout', (req, res) => {
-    console.log('session outside');
+    
     if (req.session) {
-        console.log('session inside');
         req.session.destroy((err) => {
             if (err) {
-                console.log('error', err);
                 res.status(500).json({ message: 'Error in destroying session' });
                 return;
             }

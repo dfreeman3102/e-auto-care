@@ -9,24 +9,24 @@ document.getElementById('appointmentForm').addEventListener('submit', async func
         return;
     }
 
-    const response = await fetch('/appointment/all', {
+    const response = await fetch('/appointments/create', {
         method: 'POST',
         body: JSON.stringify({
-            serviceId: serviceId,
+            service_ID: serviceId,
             appointmentDate: appointmentDate
         }),
         headers: {
-            'Content-Type': application/json
+            'Content-Type': 'application/json'
         }
 
     });
 
     if(response.ok){
-        alert('Appointment successfully created!You can view it under the My Appointments tab.');
-        window.location.reload();
+        alert('Appointment successfully created! You can view it under the My Appointments tab.');
+        document.location.replace('/appointments/all');
     } else {
         const errorMessage = await response.text();
-        alert('Failed to create appointment: ', errorMessage);
+        alert('Failed to create appointment: ' + errorMessage);
     }
 })
    
