@@ -1,14 +1,21 @@
 const router = require('express').Router();
-const { User } = require('../models');
+const { User, Service } = require('../models');
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
   try {
-    console.log(req.session);
+
+    const serviceData = await Service.findAll();
+    const formattedService = serviceData.map((service) => service.get({ plain: true}));
+    
+    console.log('serviceData' , serviceData);
+
+    // console.log(req.session);
     res.render('auth/home', {
       logged_in: req.session.logged_in,
       pageTitle: 'Home',
       shopName: 'E-Auto-Care',
-      year: new Date().getFullYear()
+      year: new Date().getFullYear(),
+      service: formattedService
     });
   } catch (err) {
     res.status(500).json(err);

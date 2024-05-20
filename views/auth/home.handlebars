@@ -13,26 +13,25 @@
 
 
     
-    <main class="container my-5">
+ <main class="container my-5">
         <section id="services" class="mb-5">
-            <h2 class="text-center"
-                style="font-family: cursive; font-size: 50px; color: red; background-color: black; opacity: 0.8; border-radius: 10px 10px 10px 10px">
-                <a href="/appointments">Our Services
+            <h2 class="text-center text-white bg-dark py-2 rounded"
+                style="font-family: cursive; font-size: 50px; opacity: 0.8;">
+                Our Services
             </h2>
-            <ul class="list-group">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
                 {{#each service}}
-                <li class="list-group-item">{{this}}</li>
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">{{this.name}}</h5>
+                        </div>
+                    </div>
+                </div>
                 {{/each}}
-            </ul>
+            </div>
         </section>
-        
     </main>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <script src="calendar.js"></script>
-    <script src="scripts.js"></script>
-    <source>
+   
 
-
-    <link rel="stylesheet" href="/public/css/style.css">
 
